@@ -4,8 +4,8 @@ int main()
 {
 
 	WasherProvider* Washer_provider = new WasherProvider();
-	IdProvider id;              // name, color, width, streight, height, power, speed, temerature//
-	Washer* washer = new Washer(id, "SAMSUNG", "White", 100, 75, 100, 900, 5000, 90);
+	IdProvider id;              // name, color, power, limit, temerature//
+	Washer* washer = new Washer(id, "SAMSUNG", "White", 100, 75, 100);
 	Washer_provider->PrintWasher(washer);
 	id.incId();
 	//cout << "Enter number of products: ";

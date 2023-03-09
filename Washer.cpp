@@ -12,25 +12,13 @@ void Washer::setColor(string color)
 {
 	(color.empty()) ? this->color = "NULL" : this->color = color;
 }
-void Washer::setWidth(int width)
+void Washer::setLimit(int limit)
 {
-	this->width = width;
-}
-void Washer::setHeight(int height)
-{
-	this->height = height;
-}
-void Washer::setStreight(int streight)
-{
-	this->streight = streight;
+	this->limit = limit;
 }
 void Washer::setPower(int power)
 {
 	this->power = power;
-}
-void Washer::setSpeed(int speed)
-{
-	this->speed = speed;
 }
 void Washer::setTemp(int temp)
 {
@@ -50,25 +38,13 @@ string Washer::getColor()
 {
 	return color;
 }      
-int Washer::getWidth()
+int Washer::getLimit()
 {
-	return width;
-}
-int Washer::getHeight()
-{
-	return height;
-}
-int Washer::getStreight()
-{
-	return streight;
+	return limit;
 }
 int Washer::getPower()
 {
 	return power;
-}
-int Washer::getSpeed()
-{
-	return speed;
 }
 int Washer::getTemp()
 {
@@ -81,11 +57,8 @@ Washer::Washer()
 	setId(0);
 	setName("");
 	setColor("");
-	setWidth(0);
-	setHeight(0);
-	setStreight(0);
+	setLimit(0);
 	setPower(0);
-	setSpeed(0);
 	setTemp(0);
 }
 Washer::Washer(IdProvider id) : Washer()
@@ -97,25 +70,16 @@ Washer::Washer(IdProvider id, string name, string color) : Washer(id)
 	setName(name);
 	setColor(color);
 }
-Washer::Washer(IdProvider id, string name, string color, int width) : Washer(id, name, color)
+Washer::Washer(IdProvider id, string name, string color, int limit) : Washer(id, name, color)
 {
-	setWidth(width);
+	setLimit(limit);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height) : Washer(id, name, color, width)
-{
-	setHeight(height);
-}
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight) : Washer(id, name, color, width, height)
-{
-	setStreight(streight);
-}
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight, int power) : Washer(id, name, color, width, height, streight)
+Washer::Washer(IdProvider id, string name, string color, int limit, int power) : Washer(id, name, color, limit)
 {
 	setPower(power);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight, int power, int speed, int temp) : Washer(id, name, color, width, height, streight, power)
+Washer::Washer(IdProvider id, string name, string color, int limit, int power, int temp) : Washer(id, name, color, limit, power)
 {
-	setSpeed(speed);
 	setTemp(temp);
 }
 
@@ -123,12 +87,9 @@ Washer::Washer(IdProvider id, string name, string color, int width, int height, 
 Washer::~Washer()
 {
 	cout << "Deleted." << endl;
-	this->width = 0;
-	this->height = 0;
+	this->limit = 0;
 	this->name.clear();
 	this->color.clear();
-	this->streight = 0;
 	this->power = 0;
-	this->speed = 0;
 	this->temp = 0;
 }
