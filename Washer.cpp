@@ -12,29 +12,25 @@ void Washer::setColor(string color)
 {
 	(color.empty()) ? this->color = "NULL" : this->color = color;
 }
-void Washer::setWidth(int width)
+void Washer::setModel(string model)
 {
-	this->width = width;
+	this->model = model;
 }
-void Washer::setHeight(int height)
+void Washer::setMinTemp(int minTemp)
 {
-	this->height = height;
+	this->minTemp = minTemp;
 }
-void Washer::setStreight(int streight)
+void Washer::setMaxTemp(int maxTemp)
 {
-	this->streight = streight;
+	this->maxTemp = maxTemp;
 }
 void Washer::setPower(int power)
 {
 	this->power = power;
 }
-void Washer::setSpeed(int speed)
+void Washer::setSmoke(string smoke)
 {
-	this->speed = speed;
-}
-void Washer::setTemp(int temp)
-{
-	this->temp = temp;
+	this->smoke = smoke;
 }
 
 //getters
@@ -50,30 +46,27 @@ string Washer::getColor()
 {
 	return color;
 }      
-int Washer::getWidth()
+string Washer::getModel()
 {
-	return width;
+	return model;
 }
-int Washer::getHeight()
+int Washer::getMinTemp()
 {
-	return height;
+	return minTemp;
 }
-int Washer::getStreight()
+int Washer::getMaxTemp()
 {
-	return streight;
+	return maxTemp;
 }
 int Washer::getPower()
 {
 	return power;
 }
-int Washer::getSpeed()
+string Washer::getSmoke()
 {
-	return speed;
+	return smoke;
 }
-int Washer::getTemp()
-{
-	return temp;
-}
+
 
 //constructors
 Washer::Washer()
@@ -81,12 +74,11 @@ Washer::Washer()
 	setId(0);
 	setName("");
 	setColor("");
-	setWidth(0);
-	setHeight(0);
-	setStreight(0);
+	setModel("");
+	setMinTemp(0);
+	setMaxTemp(0);
 	setPower(0);
-	setSpeed(0);
-	setTemp(0);
+	setSmoke("");
 }
 Washer::Washer(IdProvider id) : Washer()
 {
@@ -97,38 +89,36 @@ Washer::Washer(IdProvider id, string name, string color) : Washer(id)
 	setName(name);
 	setColor(color);
 }
-Washer::Washer(IdProvider id, string name, string color, int width) : Washer(id, name, color)
+Washer::Washer(IdProvider id, string name, string color, string model) : Washer(id, name, color)
 {
-	setWidth(width);
+	setModel(model);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height) : Washer(id, name, color, width)
+Washer::Washer(IdProvider id, string name, string color, string model, int minTemp) : Washer(id, name, color, model)
 {
-	setHeight(height);
+	setMinTemp(minTemp);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight) : Washer(id, name, color, width, height)
+Washer::Washer(IdProvider id, string name, string color, string model, int minTemp, int maxTemp) : Washer(id, name, color, model, minTemp)
 {
-	setStreight(streight);
+	setMaxTemp(maxTemp);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight, int power) : Washer(id, name, color, width, height, streight)
+Washer::Washer(IdProvider id, string name, string color, string model, int minTemp, int maxTemp, int power) : Washer(id, name, color, model, minTemp, maxTemp)
 {
 	setPower(power);
 }
-Washer::Washer(IdProvider id, string name, string color, int width, int height, int streight, int power, int speed, int temp) : Washer(id, name, color, width, height, streight, power)
+Washer::Washer(IdProvider id, string name, string color, string model, int minTemp, int maxTemp, int power, string smoke) : Washer(id, name, color, model, minTemp, maxTemp, power)
 {
-	setSpeed(speed);
-	setTemp(temp);
+	setSmoke(smoke);
 }
 
 //destructor
 Washer::~Washer()
 {
 	cout << "Deleted." << endl;
-	this->width = 0;
-	this->height = 0;
+	this->minTemp = 0;
+	this->maxTemp = 0;
 	this->name.clear();
 	this->color.clear();
-	this->streight = 0;
+	this->model.clear();
 	this->power = 0;
-	this->speed = 0;
-	this->temp = 0;
+	this->smoke.clear();
 }
